@@ -1,0 +1,14 @@
+.MuiContainer-root {
+  padding-left: 107px !important;
+  padding-right: 107px !important;
+  width: 1440px !important;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul, li {
+  list-style: none;
+}

@@ -1,25 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import AppRoutes from "./AppRoutes";
+
+
+import CssBaseline from "@mui/material/CssBaseline";
+
+import { createTheme, ThemeProvider} from "@mui/material/styles";
+
+import { PaletteColor } from "@mui/material/styles/createPalette";
+
+
+interface CustomPaletteColor extends PaletteColor {
+  mainText: string;
+}
 
 function App() {
+   const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#202329",
+        light: "#FFFFFF",
+        dark: " #3C3E44",
+        contrastText: "#272B33",
+        mainText: "#0000",
+      } as CustomPaletteColor,
+    },
+     breakpoints: {
+        values: {
+            xs: 0,       // redefine the 'xs' breakpoint value
+            sm: 320,     // redefine the 'sm' breakpoint value
+            md: 768,     // redefine the 'md' breakpoint value
+            lg: 1440,    // redefine the 'lg' breakpoint value
+            xl: 1920,    // redefine the 'xl' breakpoint value
+        },
+    },
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <CssBaseline />
+      <ThemeProvider theme={theme}>
+      <AppRoutes/>
+      </ThemeProvider>
+    </>
   );
 }
 
