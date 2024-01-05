@@ -100,22 +100,22 @@ export async function getCharacterById(id: string) {
   return character;
 }
 
-export const fetchCharactersByIds = async (
-  currentPage: number,
-  perPage: number,
-  totalCharacters: number
-) => {
-  const ids = generateCharacterIds(currentPage, perPage, totalCharacters);
-  console.log(ids);
-  try {
-    const { data } = await client.query({
-      query: getCharactersByIds,
-      variables: { ids },
-    });
-    console.log(data);
+// export const fetchCharactersByIds = async (
+//   currentPage: number,
+//   perPage: number,
+//   totalCharacters: number
+// ) => {
+//   const ids = generateCharacterIds(currentPage, perPage, totalCharacters);
+//   console.log(ids);
+//   try {
+//     const { data } = await client.query({
+//       query: getCharactersByIds,
+//       variables: { ids },
+//     });
+//     console.log(data);
 
-    return data.charactersByIds.results;
-  } catch (error) {
-    console.error("Error fetching characters:", error);
-  }
-};
+//     return data.charactersByIds.results;
+//   } catch (error) {
+//     console.error("Error fetching characters:", error);
+//   }
+// };
